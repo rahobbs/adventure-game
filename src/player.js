@@ -34,9 +34,8 @@ function play(node) {
   }]).then(function (answer) {
     // What is in the answer we are returned that we can use? Try logging it out!
     // How can we use this value to continue the game? Write your code below
-    console.log(answer[node.title]);
-    console.log(node.connections);
-    console.log(node.conditions[answer[node.title]]);
+    var nextNode = node.conditions[answer[node.title]].value;
+    return play(nextNode);
   })
 }
 

@@ -25,8 +25,8 @@ Game.prototype.getNode = function(name){
     return this.nodes[name];
 }
 
-Game.prototype.connect = function(node1, node2, condition){
-  this.nodes[node1].connect(this.nodes[node2], condition);
+Game.prototype.connect = function(nodeName1, nodeName2, condition){
+  this.getNode(nodeName1).connect(this.getNode(nodeName2), condition);
 }
 
 module.exports = Game
