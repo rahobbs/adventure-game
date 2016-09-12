@@ -19,18 +19,24 @@ https://gist.github.com/joedotjs/ae54507f758988222ce1c80fc3ba83e2
 function play(node) {
 
   // Base case
-  if (/*Some truthy expression*/) {
+  if (node.connections.length < 1) {
     // Your code here
-
+    console.log(node.text);
     return Promise.resolve() // Don't worry about this, we will look more into Promise later on
   }
 
   // Recursive case
-  return inquirer.prompt([{/*Inquirer question object*/}])
-  .then(function (answer) {
+  return inquirer.prompt([{
+    type: "list",
+    name: node.title,
+    message: node.text,
+    choices: Object.keys(node.conditions),
+  }]).then(function (answer) {
     // What is in the answer we are returned that we can use? Try logging it out!
     // How can we use this value to continue the game? Write your code below
-
+    console.log(answer[node.title]);
+    console.log(node.connections);
+    console.log(node.conditions[answer[node.title]]);
   })
 }
 
