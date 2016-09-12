@@ -13,7 +13,7 @@ Node.prototype.connect = function(node, text){
       this.connections.push(connection);
       this.conditions[text] = connection;
   }
-
+  return connection;
 }
 
 module.exports = Node
