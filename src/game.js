@@ -22,9 +22,11 @@ Game.prototype.addNode = function(title, text){
 }
 
 Game.prototype.getNode = function(name){
-  //returns a node with a given name
+    return this.nodes[name];
 }
 
-Game.prototype.connect = function(){}
+Game.prototype.connect = function(node1, node2, condition){
+  this.nodes[node1].connect(this.nodes[node2], condition);
+}
 
 module.exports = Game

@@ -9,11 +9,12 @@ var Node = function(title, text) {
 
 Node.prototype.connect = function(node, text){
   var connection = new Connection(node, text);
-  if(!this.connections.includes(connection)){
+  if(!this.conditions[text]){
       this.connections.push(connection);
       this.conditions[text] = connection;
+  } else{
+    throw new Error();
   }
-  return connection;
 }
 
 module.exports = Node
